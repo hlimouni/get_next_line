@@ -9,14 +9,24 @@ it returns the following values.
 -1 : An error happened.
 
 USAGE:
+```
+#include <stdio.h>
+#include <fcntl.h>
 
+int main(int ac, char **av)
+{
+	int fd;
+	char *str;
 
-fd = open(av[1], O_RDONLY);
-if (ac == 2)
-{ 
-	while (get_next_line(fd, &str) > 0)
-	{
-		puts(str);
-		free(str);
+	fd = open(av[1], O_RDONLY);
+	if (ac == 2)
+	{ 
+		while (get_next_line(fd, &str) > 0)
+		{
+			puts(str);
+			free(str);
+		}
 	}
+	return (0);
 }
+```
